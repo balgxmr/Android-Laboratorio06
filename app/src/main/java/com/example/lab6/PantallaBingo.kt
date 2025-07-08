@@ -60,7 +60,7 @@ fun PantallaBingo(tamano: Int, codigo: String) {
                             shape = MaterialTheme.shapes.medium
                         )
                         .clickable(enabled = !activo) {
-                            seleccion[idx] = true
+                            seleccion = seleccion.toMutableList().also { it[idx] = true }
                             if (hayBingo(seleccion, tamano)) {
                                 mostrarBingo = true
                                 tts.speak("¡Has hecho Bingo!", TextToSpeech.QUEUE_FLUSH, null, null)
